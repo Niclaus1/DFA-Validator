@@ -5,7 +5,7 @@
 # transistions set transitions
 
 """PsuedoCode
-1. Ask for the allowed input pattern
+1. Ask for the allowed input pattern 
     - Allowed only are 1,0 
     - if 1* means any number of 1
     - if 0* means any number of 0
@@ -26,7 +26,15 @@
     - continue
 """
 
-
+userInput = input("""
+        1* = infinite number of 1Z
+        0* = infinite number of 0
+        e1 = even number of 1
+        e0 = even number of 0
+        o1 = odd number of 1
+        o0 = odd number of 0
+        *Use "," for each Unique Input*
+Create your Pattern: """)
 
 
 
