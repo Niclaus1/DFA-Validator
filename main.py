@@ -22,6 +22,5 @@
     - continue
 """
 
-"Test"
 
 
