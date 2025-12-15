@@ -9,7 +9,11 @@
     - Allowed only are 1,0 
     - if 1* means any number of 1
     - if 0* means any number of 0
-2. Automatically Generates a states
+    - if e1 means even number of 1
+    - if o1 means odd number of 1
+    - if e0 means even number of 0
+    - if o0 means off number of 0
+2. Generate a states as dictionary
 3. create dictionary for each state
     q# : (input1: q#, input0: q#)
     - Print the dictionaries
@@ -21,6 +25,8 @@
 7. Else
     - continue
 """
+
+
 
 
 
