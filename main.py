@@ -36,26 +36,32 @@ userInput = input("""
         *Use "," for each Unique Input*
 Create your Pattern: """)
 
+
 #Create State Dictionaries
 
 splitInput = userInput.split(",")
 countInput = len(splitInput)
 
-stateDict = []
+#Create a Dictionary - keys based on len(list)
+stateDict = {}
 for i in range (countInput):
-    match userInput:
+    match splitInput[i]:
+        case "1":
+            stateDict["q" + str(i)] = "Single 1"
+        case "0":
+            stateDict["q" + str(i)] = "Single 0"        
         case "1*":
-            print("Infinite 1s")
+            stateDict["q" + str(i)] = "Infinite 1s"
         case "0*":
-            print("Infinite 0s")
+            stateDict["q" + str(i)] = "Infinite 0s"
         case "e1":
-            print("Even 1s")
+            stateDict["q" + str(i)] = "Even 1"
         case "e0":
-            print("Even 0s")
+            stateDict["q" + str(i)] = "Even 0"
         case "o1*":
-            print("Odd 1s")
+            stateDict["q" + str(i)] = "Odd 1"
         case "o0":
-            print("Odd 0s")
+            stateDict["q" + str(i)] = "Odd 0"
 
-
-
+print(stateDict)
+print(splitInput)
