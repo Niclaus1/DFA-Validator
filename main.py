@@ -27,7 +27,9 @@
 """
 
 userInput = input("""
-        1* = infinite number of 1Z
+        1  = single 1
+        0  = single 0
+        1* = infinite number of 1
         0* = infinite number of 0
         e1 = even number of 1
         e0 = even number of 0
