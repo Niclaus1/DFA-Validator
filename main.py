@@ -121,9 +121,7 @@ def DataChecking():
     for char in uniqueCode:
         pattern += regex_map.get(char, "")
     pattern += "$"
-    
-    print(f"\nGenerated Regex Pattern: {pattern}\n")
-    
+        
     for i in listOfInputs:
         if re.fullmatch(pattern, i):
             print(f"Input'{i}': VALID")
