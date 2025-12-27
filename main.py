@@ -45,31 +45,44 @@ class Main:
     countInput = len(splitInput)
 
     #Create a Dictionary - keys based on len(list)
+    #Create a unique code per pattern
     stateDict = {}
+    codePattern = ""
     for i in range (countInput):
         match splitInput[i]:
             case "1":
                 stateDict["q" + str(i)] = "Single 1"
+                codePattern = codePattern + "0" #Ucode
             case "0":
-                stateDict["q" + str(i)] = "Single 0"        
+                stateDict["q" + str(i)] = "Single 0"
+                codePattern = codePattern + "1" #Ucode
             case "1*":
                 stateDict["q" + str(i)] = "Infinite 1s"
+                codePattern = codePattern + "2" #Ucode
             case "0*":
                 stateDict["q" + str(i)] = "Infinite 0s"
+                codePattern = codePattern + "3" #Ucode
             case "e1":
                 stateDict["q" + str(i)] = "Even 1"
+                codePattern = codePattern + "4" #Ucode
             case "e0":
                 stateDict["q" + str(i)] = "Even 0"
-            case "o1*":
+                codePattern = codePattern + "5" #Ucode
+            case "o1":
                 stateDict["q" + str(i)] = "Odd 1"
+                codePattern = codePattern + "6" #Ucode
             case "o0":
                 stateDict["q" + str(i)] = "Odd 0"
+                codePattern = codePattern + "7" #Ucode
 
     print(stateDict)
     print(splitInput)
+    print(codePattern)
 
 class UserData:
     #4. In a While Loop, ask user to input some 1s & 0s
+    #thoughts: creating a unique code per each pattern, where when we input the data, it translates into a code for easy checking
+    
     print("Input your patterns!")
     print("Type 'stop' to exit")
     status = True
