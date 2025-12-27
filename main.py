@@ -25,56 +25,58 @@
 7. Else
     - continue
 """
+class Main:
+    userInput = input("""
+            1  = single 1
+            0  = single 0
+            1* = infinite number of 1
+            0* = infinite number of 0
+            e1 = even number of 1
+            e0 = even number of 0
+            o1 = odd number of 1
+            o0 = odd number of 0
+            *Use "," for each Unique Input*
+    Create your Pattern: """)
 
-userInput = input("""
-        1  = single 1
-        0  = single 0
-        1* = infinite number of 1
-        0* = infinite number of 0
-        e1 = even number of 1
-        e0 = even number of 0
-        o1 = odd number of 1
-        o0 = odd number of 0
-        *Use "," for each Unique Input*
-Create your Pattern: """)
 
+    #Create State Dictionaries
 
-#Create State Dictionaries
+    splitInput = userInput.split(",")
+    countInput = len(splitInput)
 
-splitInput = userInput.split(",")
-countInput = len(splitInput)
+    #Create a Dictionary - keys based on len(list)
+    stateDict = {}
+    for i in range (countInput):
+        match splitInput[i]:
+            case "1":
+                stateDict["q" + str(i)] = "Single 1"
+            case "0":
+                stateDict["q" + str(i)] = "Single 0"        
+            case "1*":
+                stateDict["q" + str(i)] = "Infinite 1s"
+            case "0*":
+                stateDict["q" + str(i)] = "Infinite 0s"
+            case "e1":
+                stateDict["q" + str(i)] = "Even 1"
+            case "e0":
+                stateDict["q" + str(i)] = "Even 0"
+            case "o1*":
+                stateDict["q" + str(i)] = "Odd 1"
+            case "o0":
+                stateDict["q" + str(i)] = "Odd 0"
 
-#Create a Dictionary - keys based on len(list)
-stateDict = {}
-for i in range (countInput):
-    match splitInput[i]:
-        case "1":
-            stateDict["q" + str(i)] = "Single 1"
-        case "0":
-            stateDict["q" + str(i)] = "Single 0"        
-        case "1*":
-            stateDict["q" + str(i)] = "Infinite 1s"
-        case "0*":
-            stateDict["q" + str(i)] = "Infinite 0s"
-        case "e1":
-            stateDict["q" + str(i)] = "Even 1"
-        case "e0":
-            stateDict["q" + str(i)] = "Even 0"
-        case "o1*":
-            stateDict["q" + str(i)] = "Odd 1"
-        case "o0":
-            stateDict["q" + str(i)] = "Odd 0"
+    print(stateDict)
+    print(splitInput)
 
-print(stateDict)
-print(splitInput)
+class UserData:
+    #4. In a While Loop, ask user to input some 1s & 0s
+    print("Input your patterns!")
+    print("Type 'stop' to exit")
+    status = True
+    while status:
+        inputPattern = input()
+        
+        
+        if inputPattern == "stop":
+            status = False
 
-#4. In a While Loop, ask user to input some 1s & 0s
-print("Input your patterns!")
-print("Type 'stop' to exit")
-status = True
-while status:
-    inputPattern = input()
-    
-    
-    if inputPattern == "stop":
-        status = False
