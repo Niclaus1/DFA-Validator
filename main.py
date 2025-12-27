@@ -25,7 +25,7 @@
 7. Else
     - continue
 """
-class Main:
+def Main():
     userInput = input("""
             1  = single 1
             0  = single 0
@@ -79,10 +79,12 @@ class Main:
     print("")
     print(f"Unique Code of the Pattern is: {codePattern}")
     print("")
-class UserInput:
-    #4. In a While Loop, ask user to input some 1s & 0s
-    #thoughts: creating a unique code per each pattern, where when we input the data, it translates into a code for easy checking
     
+def UserInput():
+    #4. In a While Loop, ask user to input some 1s & 0s
+    #thoughts: creating a unique code per each pattern, where when we input the data, 
+    #          it translates into a code for easy checking
+    userInputs = []
     status = True
     while status:
         inputPattern = input(
@@ -90,8 +92,13 @@ class UserInput:
     Input your Patterns!
     Type stop to exit-- 
     """)
-        
+        userInputs.append(inputPattern)
         
         if inputPattern == "stop":
+            userInputs.pop(-1)
             status = False
+        
+    print(userInputs)
 
+def DataChecking ():
+    None
