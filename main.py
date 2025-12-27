@@ -67,3 +67,14 @@ for i in range (countInput):
 
 print(stateDict)
 print(splitInput)
+
+#4. In a While Loop, ask user to input some 1s & 0s
+print("Input your patterns!")
+print("Type 'stop' to exit")
+status = True
+while status:
+    inputPattern = input()
+    
+    
+    if inputPattern == "stop":
+        status = False
