@@ -74,20 +74,22 @@ class Main:
             case "o0":
                 stateDict["q" + str(i)] = "Odd 0"
                 codePattern = codePattern + "7" #Ucode
-
-    print(stateDict)
-    print(splitInput)
-    print(codePattern)
-
-class UserData:
+    print("")
+    print(f"Each status of the Pattern is: {stateDict}")
+    print("")
+    print(f"Unique Code of the Pattern is: {codePattern}")
+    print("")
+class UserInput:
     #4. In a While Loop, ask user to input some 1s & 0s
     #thoughts: creating a unique code per each pattern, where when we input the data, it translates into a code for easy checking
     
-    print("Input your patterns!")
-    print("Type 'stop' to exit")
     status = True
     while status:
-        inputPattern = input()
+        inputPattern = input(
+    """ 
+    Input your Patterns!
+    Type stop to exit-- 
+    """)
         
         
         if inputPattern == "stop":
