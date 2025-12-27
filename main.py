@@ -1,3 +1,4 @@
+import re
 # DFA - Validator
 
 # states ask the number of q
@@ -79,6 +80,7 @@ def Main():
     print("")
     print(f"Unique Code of the Pattern is: {codePattern}")
     print("")
+    return codePattern
     
 def UserInput():
     #4. In a While Loop, ask user to input some 1s & 0s
@@ -98,7 +100,34 @@ def UserInput():
             userInputs.pop(-1)
             status = False
         
-    print(userInputs)
+    return userInputs
 
-def DataChecking ():
-    None
+def DataChecking():
+    uniqueCode = Main()
+    listOfInputs = UserInput()
+    
+    regex_map = {
+        "0": "1",       # Single 1
+        "1": "0",       # Single 0
+        "2": "1*",      # Infinite 1s (zero or more)
+        "3": "0*",      # Infinite 0s (zero or more)
+        "4": "(11)*",   # Even 1s (consecutive blocks of 1s)
+        "5": "(00)*",   # Even 0s
+        "6": "1(11)*",  # Odd 1s
+        "7": "0(00)*"   # Odd 0s
+    }
+    
+    pattern = "^"
+    for char in uniqueCode:
+        pattern += regex_map.get(char, "")
+    pattern += "$"
+    
+    print(f"\nGenerated Regex Pattern: {pattern}\n")
+    
+    for i in listOfInputs:
+        if re.fullmatch(pattern, i):
+            print(f"Input'{i}': VALID")
+        else:
+            print(f"Input'{i}': INVALID")
+            
+DataChecking()
